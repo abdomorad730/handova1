@@ -1,0 +1,227 @@
+@import "tailwindcss";
+@import 'flowbite';
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Import Playwrite Danmark Loopet font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+Danmark+Loopet&display=swap');
+
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+/* html.dark body {
+  background-color: black;
+  color: white;
+} */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+  }
+  h1 {
+    @apply text-5xl;
+  }
+  h2 {
+    @apply text-4xl;
+  }
+  h3 {
+    @apply text-3xl;
+  }
+  h4 {
+    @apply text-2xl;
+  }
+  h5 {
+    @apply text-xl;
+  }
+  h6 {
+    @apply text-lg;
+  }
+}
+.active{
+  background-color: #f9dcbb;
+  color: #000;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 2px 5px 5px rgb(241, 193, 49);
+}
+body {
+  font-family: 'Playwrite Danmark Loopet', cursive;
+}
+
+body:not(.dark) {
+  background-color: #f3f4f6;
+  color: #000;
+}
+body.dark {
+  background-color: #000000;
+  color: #fff;
+}
+
+  
+ .navbar {
+  background-color: rgb(165, 106, 4);
+}
+.container {
+  width: 90%;
+}
+.hero{
+  background-attachment: fixed;
+}
+.cardCategory:hover .btn {
+  transform: translateY(0);
+  opacity: 1;
+}
+.btn{
+  transform: translateY(200%);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.loader {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: rotate(45deg);
+  overflow: hidden;
+}
+.loader:after{
+  content: '';
+  position: absolute;
+  inset: 8px;
+  margin: auto;
+  background: #222b32;
+}
+.loader:before{
+  content: '';
+  position: absolute;
+  inset: -15px;
+  margin: auto;
+  background: #de3500;
+  animation: diamondLoader 2s linear infinite;
+}
+@keyframes diamondLoader {
+  0%  ,10% {
+    transform: translate(-64px , -64px) rotate(-45deg)
+  }
+  90% , 100% {
+    transform: translate(0px , 0px) rotate(-45deg)
+  }
+}
+.home {
+  background: url('../src/assets/images/close-up-person-cutting-lace-with-knife-wooden-desk.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+@media (max-width: 768px) {
+  .home {
+    background: url('/images/home-mobile.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+.trash{
+  transform: translateX(200%);
+  opacity: 0;
+  transition: all 0.3s ease-in ;
+}
+.li-trash:hover .trash{
+  transform: translateX(0%);
+  opacity: 1;
+}
+.spinner {
+   width: 56px;
+   height: 56px;
+   border-radius: 50%;
+   background: radial-gradient(farthest-side,#d6982f 94%,#0000) top/9px 9px no-repeat,
+          conic-gradient(#0000 30%,#d6982f);
+   -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
+   animation: spinner-c7wet2 1s infinite linear;
+}
+
+@keyframes spinner-c7wet2 {
+   100% {
+      transform: rotate(1turn);
+   }
+}
+h1{
+  position: relative;
+}
+
+h1::after{
+  content: '';
+  position: absolute;
+  bottom: -10px;  
+  left: 10%;
+  right: 10%;
+  background: #d6982f;
+  width: 30%;
+  height: 2px;
+  margin: auto;
+}
+
+/* خلفية فيديو سيكشن الكاتيجوري */
+.category-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.category-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35); /* تعتيم */
+  z-index: 2;
+}
+
+.category .relative.z-10 {
+  z-index: 3;
+  position: relative;
+}
+
+.flex-container-2 {
+  animation: colorSlide 15s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+}
+
+@keyframes colorSlide {
+  0% { background-color: #000000; }
+  25% { background-color: rgb(121, 151, 216); }
+  50% { background-color: seagreen; }
+  75% { background-color: tomato; }
+  100% { background-color: #152a68; }
+}
+
+.fade-in {
+  animation: fadeIn 2s ease infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.alert-login{
+  animation: alert-login 2s ease infinite;
+}
+
+@keyframes alert-login {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+

@@ -1,0 +1,22 @@
+    .navbar-link-darkmode {
+  color: white;
+}
+
+.dark .navbar-link-darkmode {
+  color: black !important;
+}
+
+/* Dropdown profile in light mode: white bg, black text */
+.dropdown-profile-navbar {
+  background: white !important;
+}
+.dropdown-profile-navbar .text-black,
+.dropdown-profile-navbar .block,
+.dropdown-profile-navbar .px-4,
+.dropdown-profile-navbar .py-2 {
+  color: #000 !important;
+}
+
+.dark .dropdown-profile-navbar {
+  background: #1f2937 !important;
+}
